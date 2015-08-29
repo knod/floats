@@ -1,0 +1,68 @@
+/*index.css*/
+
+/*index.css*/
+
+body, html {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	height: 10%;
+	width: 100%;
+	margin: 0;
+	padding: 1.5rem;
+
+	background-color: lightgray;
+	color: white;
+
+	text-align: center
+}
+
+h1 {
+	margin: 0;
+}
+
+div {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100%;
+	height: 90%;
+
+	position: relative;
+	/* Somehow, without this, things are spaced weird */
+	border: 1px solid black;
+}
+
+
+/* Columns and contents? */
+.col {
+	display: block;
+	height: auto;
+	width: 31%;
+	margin: 1%;
+}
+
+.level1 {
+	/* width and height take margin into account */
+	width: 46%;
+	height: 5rem;
+	padding: 0;
+	/*margin: 2%;*/
+	background-color: lightgray;
+
+	text-align: center;
+}
+
+/* Column 1 */
+.col1 .level1.b:hover { float: left; }
+
+.col1 .level1.a { background-color: teal }
+.col1 .level1.b { background-color: coral; }
+.col1 .level1.c { background-color: palegreen; width: 60%; }
+

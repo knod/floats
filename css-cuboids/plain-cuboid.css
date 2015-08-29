@@ -1,0 +1,148 @@
+/* plain-cuboid.css
+* 
+* RESOURCES USED:
+* - https://desandro.github.io/3dtransforms/docs/rectangular-prism.html
+* 
+*/
+
+.app {
+	perspective: 100px;
+	position: relative;
+	margin: 1rem 3rem;
+
+	box-sizing: border-box;
+}
+
+.cuboid {
+	margin: 0 auto;
+
+	width: 150px;
+	height: 300px;
+	position: relative;
+	transform-style: preserve-3d;
+
+	box-sizing: border-box;
+}
+
+#test_1.cuboid .side {
+	margin: 0;
+	display: block;
+	position: absolute;
+	/*backface-visibility: hidden;*/
+
+	/* Not sure if this is useful or not */
+	box-sizing: border-box;
+
+	transform-style: preserve-3d;
+}
+
+
+/* Colors for testing */
+.cuboid 		{ background-color: rgba( 255, 255, 255, 0.4 ); }
+.cuboid .front 	{ background-color: rgba( 0, 0, 0, 0.4 ); }
+.cuboid .back 	{ background-color: rgba( 0, 0, 0, 0.2 ); }
+.cuboid .left 	{ background-color: rgba( 0, 0, 0, 0.6 ); }
+.cuboid .right 	{ background-color: rgba( 0, 0, 0, 0.6 ); }
+.cuboid .top 	{ background-color: rgba( 0, 0, 0, 1 ); }
+.cuboid .bottom { background-color: rgba( 0, 0, 0, 1 ); }
+
+/* 	Centered z in parent
+* 	Front: 	push forward (amount - 1/2 thickness of cuboid). Full width and height.
+* 	Back: 	flip 180, push "forward" (moves towards the back) (amount - 1/2 thickness). Full width and height.
+* 	Left: 	flip -90 around the left edge. Width of cubiod thickness, full height. Adjust 'x' 1/2 thickness forward.
+* 	Right: 	flip 90 around the right edge. Width of cubiod thickness, full height. Adjust 'x' 1/2 thickness back.
+* 	Top: 	flip 90 around top edge. Height of cubiod thickness, full width. Adjust 'y' 1/2 thickness forward.
+* 	Bottom: flip -90 around bottom edge. Height of cubiod thickness, full width. Adjust 'y' 1/2 thickness back.
+*/
+#test_1.cuboid .front {
+	width: 100%;
+	height: 100%;
+
+	top: 0; left: 0;
+	transform: rotateX(   0deg ) translateZ(  10px );
+}
+#test_1.cuboid .back {
+	width: 100%;
+	height: 100%;
+	
+	top: 0; left: 0;
+	transform: rotateX( 180deg ) translateZ(  10px );
+}
+#test_1.cuboid .left {
+	width: 20px;
+	height: 100%;
+
+	top: 0; left: 0;
+	transform-origin: left;
+	transform: rotateY(  -90deg ) translateX( -10px );
+}
+#test_1.cuboid .right {
+	width: 20px;
+	height: 100%;
+
+	top: 0; right: 0;
+	transform-origin: right;
+	transform: rotateY(  90deg ) translateX(  10px );
+}
+#test_1.cuboid .top {
+	width: 100%;
+	height: 20px;
+
+	top: 0; left: 0;
+	transform-origin: top;
+	transform: rotateX(  90deg ) translateY( -10px );
+}
+#test_1.cuboid .bottom {
+	width: 100%;
+	height: 20px;
+
+	bottom: 0; left: 0;
+	transform-origin: bottom;
+	transform: rotateX( -90deg ) translateY(  10px );
+}
+
+
+/* 	On surface of parent
+* 	Front: 	push forward (amount - the thickness of cuboid). Full width and height.
+* 	Back: 	flip 180 (so it's facing outwards towards the back). Full width and height.
+* 	Left: 	flip -90 around the left edge. Width of cubiod thickness, full height.
+* 	Right: 	flip 90 around the right edge. Width of cubiod thickness, full height.
+* 	Top: 	flip 90 around top edge. Height of cubiod thickness, full width.
+* 	Bottom: flip -90 around bottom edge. Height of cubiod thickness, full width.
+*/
+/*#test_1.cuboid .front {
+	top: 0; left: 0;
+	transform: rotateX(   0deg ) translateZ( 20px );
+}
+#test_1.cuboid .back {
+	top: 0; left: 0;
+	transform: rotateX( 180deg );
+}
+#test_1.cuboid .left {
+	width: 20px;
+
+	top: 0; left: 0;
+	transform-origin: left;
+	transform: rotateY(  -90deg );
+}
+#test_1.cuboid .right {
+	width: 20px;
+
+	top: 0; right: 0;
+	transform-origin: right;
+	transform: rotateY(  90deg );
+}
+#test_1.cuboid .top {
+	height: 20px;
+
+	top: 0; left: 0;
+	transform-origin: top;
+	transform: rotateX(  90deg );
+}
+#test_1.cuboid .bottom {
+	height: 20px;
+
+	bottom: 0; left: 0;
+	transform-origin: bottom;
+	transform: rotateX( -90deg );
+}*/

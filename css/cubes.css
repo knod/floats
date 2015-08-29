@@ -1,0 +1,57 @@
+/* cubes.css
+* 
+* RESOURCES:
+* - https://desandro.github.io/3dtransforms/docs/rectangular-prism.html
+* 
+*/
+
+.app {
+	perspective: 2000px;
+	position: relative;
+
+	box-sizing: border-box;
+}
+
+.cuboid {
+	width: 100px;
+	height: 300px;
+	position: relative;
+	transform-style: preserve-3d;
+
+	box-sizing: border-box;
+}
+
+.cuboid .side {
+	/* Testing? */
+	width: 100%;
+	height: 100%;
+	background-color: rgba( 150, 150, 150, .4 );
+
+	/* Cubing */
+	margin: 0;
+	display: block;
+	position: absolute;
+	backface-visibility: hidden;
+
+	/* Not sure if this is useful or not */
+	box-sizing: border-box;
+}
+
+.cuboid .front {
+	transform: rotateY(   0deg );
+}
+.cuboid .back {
+	transform: rotateX( 180deg );
+}
+.cuboid .left {
+	transform: rotateY(  90deg );
+}
+.cuboid .right {
+	transform: rotateY( -90deg );
+}
+.cuboid .top {
+	transform: rotateX(  90deg );
+}
+.cuboid .bottom {
+	transform: rotateX( -90deg );
+}
